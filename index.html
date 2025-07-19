@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Tech Solutions | Digital Services in Ghana</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #3b99f6;
+      --primary-dark: #25ebdb;
+      --primary-light: #93c5fd;
+      --secondary: #f59e0b;
+      --secondary-dark: #d97706;
+      --dark: #1e293b;
+      --darker: #0f172a;
+      --light: #f8fafc;
+      --lighter: #ffffff;
+      --gray: #64748b;
+      --success: #10b981;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    /* Navigation */
+    nav {
+      background-color: var(--primary);
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    .logo {
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+    }
+    
+    .logo span {
+      color: var(--secondary);
+    }
+    
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+    
+    .nav-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: white;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-menu {
+      display: flex;
+      list-style: none;
+    }
+    
+    .nav-menu li {
+      margin-left: 2rem;
+    }
+    
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 0.5rem 0;
+      position: relative;
+    }
+    
+    .nav-menu a:hover {
+      color: var(--secondary);
+    }
+    
+    .nav-menu a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--secondary);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-menu a:hover::after {
+      width: 100%;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      padding: 6rem 0 4rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .profile-section {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 3rem auto;
+      flex-wrap: wrap;
+    }
+    
+    .profile-image, .logo-image {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid white;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+    
+    .profile-image:hover, .logo-image:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    }
+    
+    /* Sections */
+    .section {
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 1rem;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--secondary);
+      border-radius: 2px;
+    }
+    
+    /* About Section */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.1rem;
+      color: var(--gray);
+    }
+    
+    .stats {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .stat-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+      min-width: 150px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Services Section */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+    
+    .service-icon {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    /* Contact Section */
+    .contact {
+      background-color: var(--darker);
+      color: white;
+    }
+    
+    .contact .section-title h2 {
+      color: white;
+    }
+    
+    .contact .section-title h2::after {
+      background: var(--secondary);
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    .contact-item {
+      background: rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .contact-icon {
+      font-size: 2rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--darker);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+    }
+    
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-toggle {
+        display: flex;
+      }
+      
+      .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--primary-dark);
+        flex-direction: column;
+        padding: 100px 20px;
+        transition: all 0.5s ease;
+      }
+      
+      .nav-menu.active {
+        right: 0;
+      }
+      
+      .nav-menu li {
+        margin: 1rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+      
+      .profile-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Jay <span>Tech Solutions</span></div>
+    <div class="nav-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-menu">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container hero-content">
+      <h1>Jay Tech Solutions</h1>
+      <p>Smart digital solutions tailored for businesses and students in Ghana</p>
+      
+      <div class="profile-section">
+        
+        <img src="images\J-Tech Logo4.png" alt="Jay Tech Logo" class="logo-image" id="logo-pic">
+      </div>
+      
+      <div>
+        <input type="file" id="profile-upload" accept="image/*" style="display: none;">
+        <input type="file" id="logo-upload" accept="image/*" style="display: none;">
+        <button onclick="document.getElementById('profile-upload').click()" style="margin-right: 1rem;"></button>
+        <button onclick="document.getElementById('logo-upload').click()"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>About Jay Tech</h2>
+      </div>
+      
+      <div class="about-content">
+        <p>Jay Tech Solutions is a premier digital services brand founded by Justice Simon Zotoo, dedicated to providing affordable and effective tech solutions for students, small businesses, and communities across Ghana and beyond.</p>
+        <p>Our mission is to empower individuals and organizations with the tools they need to thrive in an increasingly digital world through customized technology solutions and training.</p>
+      </div>
+      
+      <div class="stats">
+        <div class="stat-item">
+          <div class="stat-number">15+</div>
+          <div>Projects Completed</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2+</div>
+          <div>Years Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div>Client Satisfaction</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Our Services</h2>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <h3>Web & Mobile Development</h3>
+          <p>Custom websites and mobile applications built with modern technologies to establish your digital presence.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h3>Data Dashboards</h3>
+          <p>Interactive Excel and Power BI dashboards to visualize complex data and uncover business insights.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <h3>Tech Tutoring</h3>
+          <p>Personalized training in SPSS, coding, Excel and other essential tech skills for career advancement.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h3>CV & Portfolio Services</h3>
+          <p>Professionally designed CVs and portfolio websites to showcase your skills and stand out.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-laptop"></i>
+          </div>
+          <h3>Laptop Sales</h3>
+          <p>Quality, affordable laptops carefully sourced to meet your specific requirements and budget.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>IT Consultancy</h3>
+          <p>Tailored technology solutions including software/hardware advice, custom tools, and system setup.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Contact Section -->
+<section id="contact" class="section contact">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact Us</h2>
+    </div>
+    
+    <div class="contact-info">
+      <!-- Email -->
+      <div class="contact-item">
+        <a href="mailto:jaytechsolutions508@gmail.com" class="contact-icon" title="Send Email">
+          <i class="fas fa-envelope"></i>
+        </a>
+        <h3>Email</h3>
+        <p><a href="mailto:jaytechsolutions508@gmail.com">jaytechsolutions508@gmail.com</a></p>
+      </div>
+      
+      <!-- WhatsApp -->
+      <div class="contact-item">
+        <a href="https://wa.me/233249898478" target="_blank" class="contact-icon" title="Chat on WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <h3>WhatsApp</h3>
+        <p><a href="https://wa.me/233249898478" target="_blank">+233 24 989 8478</a></p>
+      </div>
+      
+      <!-- Location -->
+      <div class="contact-item">
+        <div class="contact-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <h3>Location</h3>
+        <p>Kobbyheat Street, North Legon, Accra, Ghana</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Jay Tech Solutions. All rights reserved.</p>
+      
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Navigation Toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    navToggle.addEventListener('click', () => {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    });
+    
+    // Image Upload Functionality
+    const profileUpload = document.getElementById('profile-upload');
+    const logoUpload = document.getElementById('logo-upload');
+    const profilePic = document.getElementById('profile-pic');
+    const logoPic = document.getElementById('logo-pic');
+    
+    profileUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          profilePic.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    
+    logoUpload.addEventListener('change', (e) => {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          logoPic.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          window.scrollTo({
+            top: targetElement.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
