@@ -514,35 +514,99 @@
     </div>
   </section>
 
-  <!-- Rest of your existing HTML content remains the same -->
-  <!-- About Section -->
-  <section id="about" class="section">
-    <div class="container">
-      <div class="section-title">
-        <h2>About Jay Tech</h2>
+ 
+<!-- About Section with Picture -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-title">
+      <h2>About Jay Tech</h2>
+    </div>
+    
+    <div class="about-container">
+      <div class="about-image">
+        <img src="images\meinsuit.jpeg" alt="Justice Simon Zotoo" class="profile-photo">
       </div>
-      
-      <div class="about-content">
+      <div class="about-text">
+        <h3>Meet the Founder</h3>
         <p>Jay Tech Solutions is a premier digital services brand founded by Justice Simon Zotoo, dedicated to providing affordable and effective tech solutions for students, small businesses, and communities across Ghana and beyond.</p>
         <p>Our mission is to empower individuals and organizations with the tools they need to thrive in an increasingly digital world through customized technology solutions and training.</p>
-      </div>
-      
-      <div class="stats">
-        <div class="stat-item">
-          <div class="stat-number">15+</div>
-          <div>Projects Completed</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">2+</div>
-          <div>Years Experience</div>
-        </div>
-        <div class="stat-item">
-          <div class="stat-number">98%</div>
-          <div>Client Satisfaction</div>
-        </div>
+        <p>With a passion for technology and education, Justice brings hands-on experience in software development, data analysis, and IT training to help clients achieve their digital goals.</p>
       </div>
     </div>
-  </section>
+    
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-number">15+</div>
+        <div>Projects Completed</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">2+</div>
+        <div>Years Experience</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">98%</div>
+        <div>Client Satisfaction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* About Section Styles */
+  .about-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .about-image {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .profile-photo {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .profile-photo:hover {
+    transform: scale(1.02);
+  }
+  
+  .about-text {
+    flex: 2;
+  }
+  
+  .about-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+  
+  .about-text p {
+    margin-bottom: 1rem;
+    color: var(--gray);
+    font-size: 1.1rem;
+    line-height: 1.7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .about-container {
+      flex-direction: column;
+    }
+    
+    .about-image {
+      min-width: 100%;
+      max-width: 400px;
+      margin-bottom: 2rem;
+    }
+  }
+</style>
 
   <!-- Services Section -->
   <section id="services" class="section">
